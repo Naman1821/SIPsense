@@ -87,12 +87,12 @@ def portfolio_growth_chart(sip_df: pd.DataFrame) -> go.Figure:
         template="plotly_dark",
         paper_bgcolor="#0e1117",
         plot_bgcolor="#12151c",
-        height=420,
-        margin=dict(l=50, r=30, t=40, b=50),
-        legend=dict(orientation="h", yanchor="bottom", y=1.02, x=0),
+        height=460,
+        margin=dict(l=50, r=30, t=80, b=50),
+        legend=dict(orientation="h", yanchor="bottom", y=1.06, x=0.5, xanchor="center"),
         xaxis_title="Date",
         yaxis_title="Amount (INR)",
-        title=dict(text="SIP Portfolio Growth (5 Years)", font=dict(size=16)),
+        title=dict(text="SIP Portfolio Growth (5 Years)", font=dict(size=16), y=0.97),
     )
     return fig
 
@@ -143,10 +143,10 @@ def nifty_sentiment_chart(market_df: pd.DataFrame) -> go.Figure:
         template="plotly_dark",
         paper_bgcolor="#0e1117",
         plot_bgcolor="#12151c",
-        height=440,
-        margin=dict(l=50, r=50, t=40, b=50),
-        legend=dict(orientation="h", yanchor="bottom", y=1.02, x=0),
-        title=dict(text="Nifty 50 vs Daily Sentiment (Shocks in Red)", font=dict(size=16)),
+        height=480,
+        margin=dict(l=50, r=50, t=80, b=50),
+        legend=dict(orientation="h", yanchor="bottom", y=1.06, x=0.5, xanchor="center"),
+        title=dict(text="Nifty 50 vs Daily Sentiment (Shocks in Red)", font=dict(size=16), y=0.97),
         barmode="overlay",
     )
     fig.update_yaxes(title_text="Nifty Close", secondary_y=False)

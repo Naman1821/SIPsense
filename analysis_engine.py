@@ -36,19 +36,20 @@ def calculate_sip(
     df = df.copy()
     df = df.set_index("Date").sort_index()
 
-    monthly_first = (
-        df.reset_index()
-        .groupby([df.index.year, df.index.month])["Date"]
-        .min()
-    )
-    sip_dates = set(pd.DatetimeIndex(monthly_first.values))
+    sip_dates: set = set()
+    seen_months: set = set()
+    for dt in df.index:
+        ym = (dt.year, dt.month)
+        if ym not in seen_months:
+            seen_months.add(ym)
+            sip_dates.add(dt)
 
     units = 0.0
     total_invested = 0.0
     records = []
 
     for dt, row in df.iterrows():
-        if dt.normalize() in sip_dates or dt in sip_dates:
+        if dt in sip_dates:
             price = row[price_col]
             if pd.notna(price) and price > 0:
                 units += sip_amount / price

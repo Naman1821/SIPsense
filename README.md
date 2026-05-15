@@ -41,7 +41,7 @@ SIPsense/
 ### 1. Clone & setup
 
 ```bash
-git clone https://github.com/<your-username>/SIPsense.git
+git clone https://github.com/Naman1821/SIPsense.git
 cd SIPsense
 python3 -m venv .venv
 source .venv/bin/activate   # Windows: .venv\Scripts\activate
